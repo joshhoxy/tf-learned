@@ -113,3 +113,14 @@ module "ec2_instances" {
   tags = var.resource_tags
 }
 
+module "website_s3_bucket" {
+  source ="./modules/aws-s3-static-website-bucket"
+
+  bucket_name = "josh-test-terraform-jam"
+
+  tags =  {
+    Terraform = "true"
+    Environment = "dev"
+  }
+}
+
